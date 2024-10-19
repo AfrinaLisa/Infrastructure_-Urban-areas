@@ -1,0 +1,10 @@
+import geopandas as gpd
+import matplotlib.pyplot as plt
+
+# Load a shapefile of an urban area (e.g., city boundaries)
+urban_area = gpd.read_file("path/to/urban_area_shapefile.shp")
+
+# Visualize the urban area and existing zones
+urban_area.plot(column='zone_type', cmap='Set3', legend=True)
+plt.title("Urban Area Zoning Map")
+plt.show()
