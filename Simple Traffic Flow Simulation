@@ -1,0 +1,18 @@
+import simpy
+
+def car(env, name, driving_time):
+    while True:
+        print(f'{name} starts driving at {env.now}')
+        yield env.timeout(driving_time)  # Simulates driving time
+        print(f'{name} stops at {env.now}')
+        yield env.timeout(2)  # Simulates waiting time (e.g., at traffic light)
+
+# Set up the simulation environment
+env = simpy.Environment()
+
+# Add cars to the environment with different driving times
+env.process(car(env, 'Car 1', 5))
+env.process(car(env, 'Car 2', 7))
+
+# Run the simulation for 20 time units
+env.run(until=20)
