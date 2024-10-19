@@ -1,0 +1,17 @@
+import networkx as nx
+import matplotlib.pyplot as plt
+
+# Create a directed graph to represent a road network
+road_network = nx.DiGraph()
+
+# Add nodes (intersections) and edges (roads) to the network
+road_network.add_edges_from([(1, 2), (2, 3), (3, 4), (4, 5), (1, 5)])
+
+# Draw the network
+nx.draw(road_network, with_labels=True, node_size=700, node_color="skyblue")
+plt.title("Urban Road Network")
+plt.show()
+
+# Calculate the shortest path between two points (e.g., intersection 1 and 5)
+shortest_path = nx.shortest_path(road_network, source=1, target=5)
+print(f"Shortest path between 1 and 5: {shortest_path}")
