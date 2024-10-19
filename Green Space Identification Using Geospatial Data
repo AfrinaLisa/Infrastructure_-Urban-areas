@@ -1,0 +1,13 @@
+import geopandas as gpd
+
+# Load a shapefile of city green spaces
+green_spaces = gpd.read_file("path/to/green_spaces_shapefile.shp")
+
+# Load city boundaries
+city_boundaries = gpd.read_file("path/to/city_boundaries.shp")
+
+# Plot green spaces within city boundaries
+ax = city_boundaries.plot(color='white', edgecolor='black')
+green_spaces.plot(ax=ax, color='green')
+plt.title("City Green Spaces")
+plt.show()
